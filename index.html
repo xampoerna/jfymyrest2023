@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Tailwind CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- CSS Style -->
+        <link rel="stylesheet" href="css/style.css" />
+
+        <!-- Boxicons CDN Link -->
+        <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+
+        <!-- confetti cdn -->
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: " #F1EFEF",
+                            secondary: "#CCC8AA",
+                            third: "#7D7C7C",
+                            fourth: "#191717",
+                        },
+                        width: {
+                            last: "95%",
+                        },
+                    },
+                },
+            };
+        </script>
+
+        <title>Document</title>
+    </head>
+    <body class="bg-fourth flex justify-center items-center min-h-screen">
+        <div id="contentWrapper">
+            <h2 id="welcomeText" class="block text-white text-xl md:text-2xl mb-8">Gelap ya? Nyalain lampu dong!</h2>
+            <button id="lightButton" class="py-4 px-8 text-base bg-gray-200 text-gray-900 hover:underline border-none cursor-pointer rounded-lg shadow-lg" onclick="turnOnLight()">
+                👆🏻 Nyalakan Lampu 💡
+            </button>
+        </div>
+
+        <!-- Welcome Page Start -->
+        <div id="pembuka" class="hidden">
+            <section class="h-screen w-screen bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
+                <div class="px-4 mx-auto my-auto text-center py-48 lg:py-52">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">🎉 PEMBUKA 🎉</h1>
+                    <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+                        Selamat datang di Ruang Jelajah, sebut saja begitu ya. Disini Kami mengajak Anda untuk berkeliling dan melihat kilas balik perjalanan waktu. Selamat
+                        berpetualang ya, ada banyak yang menanti setelah ini.
+                    </p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                        <button
+                            id="btn-selamat"
+                            class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-third hover:bg-secondary focus:ring-4 focus:ring-blue-300"
+                            onclick="pembuka()"
+                        >
+                            Get started
+                            <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Welcome Page End -->
+
+        <!-- Card1 Start-->
+        <div id="card1" class="hidden">
+            <div class="max-w-sm m-3 p-6 border bg-white border-gray-200 rounded-lg shadow">
+                <div>
+                    <h5 class="text-center mb-2 text-2xl font-bold tracking-tight text-gray-900">EVERYTHING'S OKAY?</h5>
+                </div>
+                <hr class="my-5" />
+                <p class="mb-3 text-base text-gray-700 text-justify"></p>
+                <p class="mb-3 text-base text-gray-700 text-justify">Haii 👋 Gimana kabarmu? Baik-baik aja kan! Selalu sehat dan bahagia yaa</p>
+                <div class="flex flex-col items-center pb-4">
+                    <div class="flex mt-4 space-x-3 md:mt-6">
+                        <button
+                            id="jelajah1"
+                            class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-third rounded-lg hover:bg-fourth focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            onclick="jelajah1()"
+                        >
+                            Yuk berpetualang!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card1 End-->
+
+        <!-- Card2 Start -->
+        <div id="card2" class="hidden m-3 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="flex flex-col items-center pb-10 px-4 pt-4">
+                <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="media/aps-profile.jpeg" alt="APS" />
+                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Nadin Amizah ft. Sal Priadi</h5>
+                <span class="text-sm text-gray-500 dark:text-gray-400">Amin Paling Serius</span>
+                <div class="flex mt-4 space-x-3 md:mt-6">
+                    <button
+                        id="jelajah2"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        onclick="jelajah2()"
+                    >
+                        Music ON
+                    </button>
+                    <button
+                        id="jelajah3"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+                        onclick="jelajah3()"
+                    >
+                        Music OFF
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Card2 End -->
+
+        <!-- Audio APS Start -->
+        <audio id="backgroundMusic" autoplay>
+            <source src="media/music/aps23.mp3" type="audio/mpeg" />
+        </audio>
+        <!-- Audio APS End -->
+
+        <!-- Coratulations Page Start -->
+        <section
+            id="selamat"
+            class="hidden h-screen w-screen bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply"
+        >
+            <div class="px-4 mx-auto my-auto text-center py-48 lg:py-52">
+                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">🎉 SELAMAT 🎉</h1>
+                <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+                    Selamat datang di halaman Selamat. Di sini, kami ingin berbagi moment kebahagiaan dan prestasi bersama Anda.
+                </p>
+                <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                    <button
+                        id="btn-selamat"
+                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-third hover:bg-secondary focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                        onclick="selamat()"
+                    >
+                        Get started
+                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Coratulations Page End -->
+
+        <!-- Card3 Start -->
+        <div id="card3" class="hidden">
+            <div class="m-3">
+                <div
+                    class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover-bg-gray-700"
+                >
+                    <img class="object-cover w-full rounded-t-lg h-72 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="media/rest.jpg" alt="" />
+                    <div class="flex flex-col justify-between p-4 leading-normal">
+                        <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">🎉 ARTIKEL ILMIAH 🎉</h5>
+                        <hr class="my-5 border-t-2" />
+                        <p class="mb-3 p-3 rounded-md border border-sky-100 font-normal text-justify text-gray-700 dark:text-gray-400">
+                            Selamat 🎉 dan Alhamdulillah! 🤲🏻 Sungguh payah ketika aku tak bisa mengucapkannya secara langsung atau sekedar ucapan seperti yang kawan-kawan mu
+                            lakukan melalui sosial media.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex text-center my-4 space-x-3 md:mt-6">
+                    <button
+                        id="jelajah4"
+                        class="inline-flex mx-auto items-center px-4 py-2 text-sm font-medium text-center text-white bg-third rounded-lg hover:bg-fourth focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        onclick="jelajah4()"
+                    >
+                        Next Jelajah👆🏻
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Card3 End -->
+
+        <!-- Card4 Start -->
+        <div id="card4" class="hidden">
+            <div class="m-3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <a href="#">
+                    <img class="rounded-t-lg h-56 w-full object-cover" src="media/rest.jpg" alt="" />
+                </a>
+                <div class="p-5">
+                    <h5 class="mb-4 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">🎉 ARTIKEL ILMIAH 🎉</h5>
+                    <hr class="my-5 border-t-2" />
+                    <div class="border border-sky-100 p-3 rounded-md shadow-sm">
+                        <p class="mb-3 font-normal text-justify text-gray-700 dark:text-gray-400">
+                            Kamu tidak memberi kabar dan aku pun telat sadar, aku baru menyadari nya di bulan Agustus - tapi tak apa, yang terpenting semuanya berjalan sesuai
+                            rencana. Sekali lagi "Alhamdulillah".
+                        </p>
+                    </div>
+                    <div class="flex text-center my-3 space-x-3 md:mt-6">
+                        <button
+                            id="jelajah5"
+                            class="inline-flex mx-auto items-center px-4 py-2 text-sm font-medium text-center text-white bg-third rounded-lg hover:bg-fourth focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            onclick="jelajah5()"
+                        >
+                            Next Jelajah👆🏻
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card4 End -->
+
+        <!-- Card5 Start -->
+        <div id="card5" class="hidden">
+            <div class="m-3 max-w-sm p-6 border bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <svg class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z"
+                    />
+                </svg>
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Selamat lainnya?</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-800 dark:text-gray-400">
+                    Selamat atas Juara 3 di Extravaganza Lomba Masak Rebung ya hehe, jangan tanya dokumentasi nya! Gaada (HP Matot) - belum sempat di backup.
+                </p>
+                <button id="jelajah6" onclick="terimakasih()" class="inline-flex items-center text-blue-600 hover:underline">
+                    Next Page yukk!
+                    <svg class="w-3 h-3 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
+                        />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Card5 End -->
+
+        <!-- Thanks Page Start -->
+        <section
+            id="terimakasih"
+            class="hidden h-screen w-screen bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply"
+        >
+            <div class="px-4 mx-auto my-auto text-center py-48 lg:py-52">
+                <h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">🎉🙏🏻 TERIMAKASIH 🙏🏻 🎉</h1>
+                <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+                    Terima kasih telah berkunjung ke halaman Terima Kasih kami. Kami sangat menghargai dukungan Anda, dan tanpa Anda, semuanya tidak akan sehebat ini.
+                </p>
+                <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                    <button
+                        id="btn-terimakasih"
+                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-third hover:bg-secondary focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                        onclick="jelajah6()"
+                    >
+                        Get started
+                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Thanks Page End -->
+
+        <!-- Card6 Start -->
+        <article id="card6" class="m-3 hidden md:w-1/2 break-inside p-6 rounded-xl bg-white dark:bg-slate-800 bg-clip-border">
+            <div class="flex pb-6 items-center justify-between">
+                <div class="flex">
+                    <a class="inline-block mr-4" href="#">
+                        <img class="rounded-full max-w-none w-12 h-12" src="media/1.jpg" />
+                    </a>
+                    <div class="flex flex-col">
+                        <div>
+                            <a class="inline-block text-lg font-bold dark:text-white" href="#">Thanks Memories</a>
+                        </div>
+                        <div class="text-slate-500 dark:text-slate-400">2019 M - 2023 M</div>
+                    </div>
+                </div>
+            </div>
+            <h2 class="text-3xl font-extrabold dark:text-white">Thanks Page Start</h2>
+            <div class="py-4">
+                <div class="flex justify-between gap-1 mb-1">
+                    <a class="flex" href="#">
+                        <img class="max-w-full rounded-tl-lg" src="media/foto/1.jpg" />
+                    </a>
+                    <a class="flex" href="#">
+                        <img class="max-w-full" src="media/foto/3.jpg" />
+                    </a>
+                    <a class="flex" href="#">
+                        <img class="max-w-full rounded-tr-lg" src="media/foto/2.jpg" />
+                    </a>
+                </div>
+                <div class="flex justify-between gap-1">
+                    <a class="flex" href="#">
+                        <img class="max-w-full rounded-bl-lg" src="media/foto/5.jpg" />
+                    </a>
+                    <a class="flex" href="#">
+                        <img class="max-w-full rounded-br-lg" src="media/foto/4.jpg" />
+                    </a>
+                </div>
+            </div>
+            <p class="dark:text-slate-200 text-justify">
+                Makasih yaa, udah jadi partner organisasi yang bener-bener hebat. Kata orang sih - "Sekretaris Abadi" - untuk urusan administrasi dalam skala organisasi kayaknya ga
+                perlu di ragukan lagi. Catatan kecil nya, ya harus sama-sama belajar lebih banyak lagi. Segitu udah cukup bagus kok, tapi ya alangkah baiknya kalau bisa lebih
+                menguasai kan? Aku merekomendasikan Office (Word, Excel, PPT, *Publisher, *Notes, etc), sedikit banyaknya - mau kemana aja skill Office pasti kepake. Ada banyak
+                sertifikasi Office yang tersedia, baik itu Free maupun Berbayar, kalau memungkinkan bagusnya harus punya beberapa.
+            </p>
+            <div class="py-4">
+                <a class="inline-flex items-center" href="#">
+                    <span class="mr-2">
+                        <svg class="fill-rose-600 dark:fill-rose-400" style="width: 24px; height: 24px" viewBox="0 0 24 24">
+                            <path
+                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                            ></path>
+                        </svg>
+                    </span>
+                    <span class="text-lg font-bold">sekebon</span>
+                </a>
+            </div>
+            <div class="relative">
+                <input
+                    class="pt-2 pb-2 pl-3 w-full h-11 bg-slate-100 dark:bg-slate-600 rounded-lg placeholder:text-slate-600 dark:placeholder:text-slate-300 font-medium pr-20"
+                    type="text"
+                    placeholder="Gausah komen, fungsi nya aku off-in."
+                />
+                <span class="flex absolute right-3 top-2/4 -mt-3 items-center">
+                    <svg class="mr-2" style="width: 26px; height: 26px" viewBox="0 0 24 24">
+                        <path
+                            fill="currentColor"
+                            d="M20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12M22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5C7,8.7 7.7,8 8.5,8C9.3,8 10,8.7 10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5C14,8.7 14.7,8 15.5,8C16.3,8 17,8.7 17,9.5M12,17.23C10.25,17.23 8.71,16.5 7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23C13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5 13.75,17.23 12,17.23Z"
+                        ></path>
+                    </svg>
+                    <svg class="fill-blue-500 dark:fill-slate-50" style="width: 24px; height: 24px" viewBox="0 0 24 24">
+                        <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"></path>
+                    </svg>
+                </span>
+            </div>
+            <div class="pt-6">
+                <div class="w-full">
+                    <button
+                        id="Jelajah7"
+                        onclick="jelajah7()"
+                        class="py-3 px-4 w-full block bg-slate-100 dark:bg-slate-700 text-center rounded-lg font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition ease-in-out delay-75"
+                    >
+                        👆🏻Next Jelajah!
+                    </button>
+                </div>
+            </div>
+        </article>
+        <!-- Card6 End -->
+
+        <!-- Card7 Start -->
+        <div id="card7" class="hidden m-3">
+            <article class="break-inside p-6 rounded-xl bg-white dark:bg-slate-800 bg-clip-border">
+                <div class="flex pb-6 items-center justify-between">
+                    <div class="flex">
+                        <a class="inline-block mr-4" href="#">
+                            <img class="rounded-full max-w-none w-14 h-14" src="media/1.jpg" />
+                        </a>
+                        <div class="flex flex-col">
+                            <div class="flex items-center">
+                                <a class="inline-block text-lg font-bold mr-2" href="#">Still Memories</a>
+                            </div>
+                            <div class="text-slate-500 dark:text-slate-300">Carousel Memories</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section Carousel Start -->
+                <section class="mt-5">
+                    <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                        <!-- Carousel wrapper -->
+                        <div class="relative h-96 md:h-[500px] overflow-hidden rounded-lg">
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img
+                                    src="media/foto/1.jpg"
+                                    class="absolute object-cover w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="carousel image"
+                                />
+                            </div>
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img
+                                    src="media/foto/2.jpg"
+                                    class="absolute object-cover w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="carousel image"
+                                />
+                            </div>
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img
+                                    src="media/foto/2.jpg"
+                                    class="absolute object-cover w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="carousel image"
+                                />
+                            </div>
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img
+                                    src="media/foto/3.jpg"
+                                    class="absolute object-cover w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="carousel image"
+                                />
+                            </div>
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img
+                                    src="media/foto/4.jpg"
+                                    class="absolute object-cover w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="carousel image"
+                                />
+                            </div>
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img
+                                    src="media/foto/5.jpg"
+                                    class="absolute object-cover w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="carousel image"
+                                />
+                            </div>
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img
+                                    src="media/foto/6.jpg"
+                                    class="absolute object-cover w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="carousel image"
+                                />
+                            </div>
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img
+                                    src="media/foto/7.jpg"
+                                    class="absolute object-cover w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="carousel image"
+                                />
+                            </div>
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img
+                                    src="media/foto/8.jpg"
+                                    class="absolute object-cover w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="carousel image"
+                                />
+                            </div>
+                        </div>
+                        <!-- Text in Slider -->
+                        <div class="absolute z-30 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                            <h3 class="font-medium text-sm md:text-xl text-white">Selamat datang di Carousel Memories😊</h3>
+                        </div>
+                        <!-- Slider controls -->
+                        <button
+                            type="button"
+                            class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                            data-carousel-prev
+                        >
+                            <span
+                                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+                            >
+                                <svg
+                                    aria-hidden="true"
+                                    class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                                <span class="sr-only">Previous</span>
+                            </span>
+                        </button>
+                        <button
+                            type="button"
+                            class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                            data-carousel-next
+                        >
+                            <span
+                                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+                            >
+                                <svg
+                                    aria-hidden="true"
+                                    class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                                <span class="sr-only">Next</span>
+                            </span>
+                        </button>
+                    </div>
+                </section>
+                <!-- Section Carousel End -->
+                <h2 class="text-3xl mt-3 font-extrabold">Slideshow Documentation</h2>
+                <div class="py-4">
+                    <p>Gambarnya nge-slide otomatis, kalo terlalu cepat slide nya - tahan aja pake cursor, nanti gambar nya berhenti.</p>
+                </div>
+                <div class="py-4">
+                    <a class="inline-flex items-center" href="#">
+                        <span class="mr-2">
+                            <svg class="fill-rose-600 dark:fill-rose-400" style="width: 24px; height: 24px" viewBox="0 0 24 24">
+                                <path
+                                    d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                ></path>
+                            </svg>
+                        </span>
+                        <span class="text-lg font-bold">seratus kebon</span>
+                    </a>
+                </div>
+                <div class="relative">
+                    <input
+                        class="pt-2 pb-2 pl-3 w-full h-11 bg-slate-100 dark:bg-slate-600 rounded-lg placeholder:text-slate-600 dark:placeholder:text-slate-300 font-medium pr-20"
+                        type="text"
+                        placeholder="komentar off, males nanti banyak yang komen beneran"
+                    />
+                    <span class="flex absolute right-3 top-2/4 -mt-3 items-center">
+                        <svg class="mr-2" style="width: 26px; height: 26px" viewBox="0 0 24 24">
+                            <path
+                                fill="currentColor"
+                                d="M20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12M22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5C7,8.7 7.7,8 8.5,8C9.3,8 10,8.7 10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5C14,8.7 14.7,8 15.5,8C16.3,8 17,8.7 17,9.5M12,17.23C10.25,17.23 8.71,16.5 7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23C13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5 13.75,17.23 12,17.23Z"
+                            ></path>
+                        </svg>
+                        <svg class="fill-blue-500 dark:fill-slate-50" style="width: 24px; height: 24px" viewBox="0 0 24 24">
+                            <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"></path>
+                        </svg>
+                    </span>
+                </div>
+                <!-- Comments content -->
+                <div class="pt-6">
+                    <!-- Comment row -->
+                    <div class="media flex pb-4">
+                        <a class="mr-4" href="#">
+                            <img class="rounded-full max-w-none w-12 h-12" src="media/12.jpg" />
+                        </a>
+                        <div class="media-body">
+                            <div>
+                                <a class="inline-block text-base font-bold mr-2" href="#">Namanya Sam</a>
+                                <span class="text-slate-500 dark:text-slate-300">2 days ago</span>
+                            </div>
+                            <p>orang-orang kok pada narsis ya!</p>
+                            <div class="mt-2 flex items-center">
+                                <a class="inline-flex items-center py-2 mr-3" href="#">
+                                    <span class="mr-2">
+                                        <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                            ></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text-base font-bold">sekebon</span>
+                                </a>
+                                <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End comments row -->
+                    <!-- comments row -->
+                    <div class="media flex pb-4">
+                        <a class="inline-block mr-4" href="#">
+                            <img class="rounded-full max-w-none w-12 h-12" src="media/2.jpg" />
+                        </a>
+                        <div class="media-body">
+                            <div>
+                                <a class="inline-block text-base font-bold mr-2" href="#">Callsamm</a>
+                                <span class="text-slate-500 dark:text-slate-300">15 minutes ago</span>
+                            </div>
+                            <p>kasian banget slide 1 & 2, yang satunya mikirin hidup - satunya lagi punya dunia sendiri.</p>
+                            <div class="mt-2 flex items-center">
+                                <a class="inline-flex items-center py-2 mr-3" href="#">
+                                    <span class="mr-2">
+                                        <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                            ></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text-base font-bold">tiga kebon</span>
+                                </a>
+                                <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                            </div>
+                            <!-- Repply content -->
+                            <div class="mt-4">
+                                <!-- Comment row -->
+                                <div class="media flex pb-4">
+                                    <a class="mr-4" href="#">
+                                        <img class="rounded-full max-w-none w-10 h-10" src="media/3.JPG" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div>
+                                            <a class="inline-block text-base font-bold mr-2" href="#">Sam Aja</a>
+                                            <span class="text-slate-500 dark:text-slate-300">14 minutes ago</span>
+                                        </div>
+                                        <p>hahaa asli cokk, ngakak aing wkwk</p>
+                                        <div class="mt-2 flex items-center">
+                                            <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                <span class="mr-2">
+                                                    <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-base font-bold">1/2 kebon</span>
+                                            </a>
+                                            <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="media flex pb-4">
+                                    <a class="mr-4" href="#">
+                                        <img class="rounded-full max-w-none w-10 h-10" src="media/4.jpg" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div>
+                                            <a class="inline-block text-base font-bold mr-2" href="#">Pokoknya Sam</a>
+                                            <span class="text-slate-500 dark:text-slate-300">12 minutes ago</span>
+                                        </div>
+                                        <p>kek mikir, "aing kurang apa ya 🤔, kok malah sibuk chattan sama orang lain" :v</p>
+                                        <div class="mt-2 flex items-center">
+                                            <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                <span class="mr-2">
+                                                    <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-base font-bold">kebon nya meledak</span>
+                                            </a>
+                                            <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="media flex pb-4">
+                                    <a class="mr-4" href="#">
+                                        <img class="rounded-full max-w-none w-10 h-10" src="media/10.jpg" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div>
+                                            <a class="inline-block text-base font-bold mr-2" href="#">Sam Ori</a>
+                                            <span class="text-slate-500 dark:text-slate-300">7 minutes ago</span>
+                                        </div>
+                                        <p>bang, udaah baanggg...</p>
+                                        <div class="mt-2 flex items-center">
+                                            <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                <span class="mr-2">
+                                                    <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-base font-bold">unlimited kebon</span>
+                                            </a>
+                                            <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End comments row -->
+                            </div>
+                            <!-- End repply content -->
+                        </div>
+                    </div>
+                    <div class="media flex pb-4">
+                        <a class="inline-block mr-4" href="#">
+                            <img class="rounded-full max-w-none w-12 h-12" src="media/5.jpg" />
+                        </a>
+                        <div class="media-body">
+                            <div>
+                                <a class="inline-block text-base font-bold mr-2" href="#">Sam Kecil</a>
+                                <span class="text-slate-500 dark:text-slate-300">10 minutes ago</span>
+                            </div>
+                            <p>slide 6 itu kek gimmick doang ketawa, aslinya pengen mukul itu hahah</p>
+                            <div class="mt-2 flex items-center">
+                                <a class="inline-flex items-center py-2 mr-3" href="#">
+                                    <span class="mr-2">
+                                        <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                            ></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text-base font-bold">1/4 kebon</span>
+                                </a>
+                                <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                            </div>
+                            <!-- Repply content -->
+                            <div class="mt-4">
+                                <!-- Comment row -->
+                                <div class="media flex pb-4">
+                                    <a class="mr-4" href="#">
+                                        <img class="rounded-full max-w-none w-10 h-10" src="media/6.jpg" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div>
+                                            <a class="inline-block text-base font-bold mr-2" href="#">Mini Sam</a>
+                                            <span class="text-slate-500 dark:text-slate-300">8 minutes ago</span>
+                                        </div>
+                                        <p>banjiirrr sikopett</p>
+                                        <div class="mt-2 flex items-center">
+                                            <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                <span class="mr-2">
+                                                    <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-base font-bold">1/2 kebon</span>
+                                            </a>
+                                            <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="media flex pb-4">
+                                    <a class="mr-4" href="#">
+                                        <img class="rounded-full max-w-none w-10 h-10" src="media/7.jpg" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div>
+                                            <a class="inline-block text-base font-bold mr-2" href="#">Sam Kw</a>
+                                            <span class="text-slate-500 dark:text-slate-300">7 minutes ago</span>
+                                        </div>
+                                        <p>sikopett daerah mana cokk? mau ngasih sumbangan bencana alam gw</p>
+                                        <div class="mt-2 flex items-center">
+                                            <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                <span class="mr-2">
+                                                    <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-base font-bold">jual kebon</span>
+                                            </a>
+                                            <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="media flex pb-4">
+                                    <a class="mr-4" href="#">
+                                        <img class="rounded-full max-w-none w-10 h-10" src="media/9.jpg" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div>
+                                            <a class="inline-block text-base font-bold mr-2" href="#">Sam Roasting</a>
+                                            <span class="text-slate-500 dark:text-slate-300">6 minutes ago</span>
+                                        </div>
+                                        <p>awkwokwk, sa ae lu jamet gondrong</p>
+                                        <div class="mt-2 flex items-center">
+                                            <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                <span class="mr-2">
+                                                    <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-base font-bold">1/3 kebon</span>
+                                            </a>
+                                            <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="media flex pb-4">
+                                    <a class="mr-4" href="#">
+                                        <img class="rounded-full max-w-none w-10 h-10" src="media/7.jpg" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div>
+                                            <a class="inline-block text-base font-bold mr-2" href="#">Sam Kw</a>
+                                            <span class="text-slate-500 dark:text-slate-300">5 minutes ago</span>
+                                        </div>
+                                        <p>berarti, aing T*han?</p>
+                                        <div class="mt-2 flex items-center">
+                                            <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                <span class="mr-2">
+                                                    <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-base font-bold">3 kebon</span>
+                                            </a>
+                                            <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="media flex pb-4">
+                                    <a class="mr-4" href="#">
+                                        <img class="rounded-full max-w-none w-10 h-10" src="media/10.jpg" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div>
+                                            <a class="inline-block text-base font-bold mr-2" href="#">Sam Ori</a>
+                                            <span class="text-slate-500 dark:text-slate-300">3 minutes ago</span>
+                                        </div>
+                                        <p>pppfffffffttttttttt....</p>
+                                        <div class="mt-2 flex items-center">
+                                            <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                <span class="mr-2">
+                                                    <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-base font-bold">1/9 kebon</span>
+                                            </a>
+                                            <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End comments row -->
+                            </div>
+                            <!-- End repply content -->
+                        </div>
+                    </div>
+                    <div class="media flex pb-4">
+                        <a class="mr-4" href="#">
+                            <img class="rounded-full max-w-none w-12 h-12" src="media/11.jpg" />
+                        </a>
+                        <div class="media-body">
+                            <div>
+                                <a class="inline-block text-base font-bold mr-2" href="#">Sebut Saja Sam</a>
+                                <span class="text-slate-500 dark:text-slate-300">2 days ago</span>
+                            </div>
+                            <p>lucu banget, jadi pengen fotbar jugaa🐣</p>
+                            <div class="mt-2 flex items-center">
+                                <a class="inline-flex items-center py-2 mr-3" href="#">
+                                    <span class="mr-2">
+                                        <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                            ></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text-base font-bold">sekebon</span>
+                                </a>
+                                <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media flex pb-4">
+                        <a class="mr-4" href="#">
+                            <img class="rounded-full max-w-none w-12 h-12" src="media/8.jpg" />
+                        </a>
+                        <div class="media-body">
+                            <div>
+                                <a class="inline-block text-base font-bold mr-2" href="#">Sam Aneh</a>
+                                <span class="text-slate-500 dark:text-slate-300">1 days ago</span>
+                            </div>
+                            <p>last slide, sok asik banget😏</p>
+                            <div class="mt-2 flex items-center">
+                                <a class="inline-flex items-center py-2 mr-3" href="#">
+                                    <span class="mr-2">
+                                        <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                            ></path>
+                                        </svg>
+                                    </span>
+                                    <span class="text-base font-bold">1/1000 kebon</span>
+                                </a>
+                                <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End comments row -->
+                    <div class="pt-6">
+                        <div class="w-full">
+                            <button
+                                class="py-2 underline px-4 w-full block bg-slate-100 dark:bg-slate-700 text-center rounded-lg font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition ease-in-out delay-75"
+                            >
+                                Komentar lainnya disembunyikan
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pt-6">
+                        <div class="w-full">
+                            <button
+                                id="Jelajah7"
+                                onclick="jelajah8()"
+                                class="py-3 px-4 w-full block bg-slate-100 dark:bg-slate-700 text-center rounded-lg font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition ease-in-out delay-75"
+                            >
+                                👆🏻Next Jelajah!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Comments content -->
+            </article>
+        </div>
+        <!-- Card7 End -->
+
+        <!-- Card8 Start -->
+        <div id="card8" class="hidden">
+            <article class="m-3 mx-auto mb-4 md:w-1/2 break-inside rounded-xl bg-white dark:bg-slate-800 bg-clip-border">
+                <div class="flex p-6 items-center justify-between">
+                    <div class="flex">
+                        <a class="inline-block mr-4" href="#">
+                            <img class="rounded-full max-w-none w-14 h-14" src="media/1.jpg" />
+                        </a>
+                        <div class="flex flex-col">
+                            <div class="flex items-center">
+                                <a class="inline-block text-lg font-bold mr-2" href="#">Memories Again</a>
+                                <span class="text-slate-500 dark:text-slate-300">3 minutes ago</span>
+                            </div>
+                            <div class="text-slate-500 dark:text-slate-300">Professional in Real Life</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-justify">
+                    <p class="pr-6 pl-6 pb-1">
+                        Terima kasih yang lainnya? Makasih buat semuanya yaa, atas hal-hal yang barangkali kamu anggap biasa aja, tapi benar-benar luar biasa dalam pandanganku.
+                        Makasih atas uluran tangan nya dan ngebantu aku buat bangkit, menjadi lebih kuat dan lebih hebat. Masih ingat waktu pertama kali aku berani meminta waktu
+                        buat ngobrol? Yup, titik awal bangkit ku dimulai dari sana, saat aku mulai memahami betapa pentingnya tetap fokus pada diriku sendiri dan mengurangi beban
+                        pikiran yang tidak perlu. Meskipun sekarang seringnya tersesat lagi.
+                    </p>
+                    <p class="pr-6 pl-6 pb-1">
+                        Kehilangan selalu menyakitkan, dan aku yakin kamu sepakat dengan itu. Dulu, aku yakin kalo aku cukup mandiri dan independent, tapi nyata nya, aku tetap cuma
+                        manusia biasa — sebagai makhluk sosial yang tetap membutuhkan orang lain. Nyata nya, aku ga sehebat yang aku pikirkan, hehe. Buktinya buat bangkit dari
+                        Kehilangan sebelumnya aku masih butuh kamu - semoga cukup jauh buat kehilangan lainnya ya.
+                    </p>
+                    <p class="pr-6 pl-6 pb-1">
+                        Intinya, makasih banyak ya. Ga semuanya harus disampaikan, bukan? Biarlah semuanya di dalam kepala dan abadi dalam ingatan (kita?).
+                    </p>
+                </div>
+                <p class="pr-6 pl-6 pb-6">
+                    <a href="#" class="font-medium text-blue-700 dark:text-blue-500">#makasih</a>
+                    <a href="#" class="font-medium text-blue-700 dark:text-blue-500">#makasih</a>
+                    <a href="#" class="font-medium text-blue-700 dark:text-blue-500">#makasih</a>
+                    <a href="#" class="font-medium text-blue-700 dark:text-blue-500">#makasih</a>
+                    <a href="#" class="font-medium text-blue-700 dark:text-blue-500">#makasih</a>
+                    <a href="#" class="font-medium text-blue-700 dark:text-blue-500">#makasih</a>
+                    <a href="#" class="font-medium text-blue-700 dark:text-blue-500">#makasih</a>
+                    <a href="#" class="font-medium text-blue-700 dark:text-blue-500">#makasih</a>
+                </p>
+                <div class="p-6 bg-yellow-500">
+                    <h2 class="text-3xl mb-1 font-extrabold text-black">dokumentasi nya gaada, ini masih di cerita hp matot.</h2>
+                    <p>niatnya pengen masukin foto pas Extravaganza, tapi yasudahlah</p>
+                    <p>di kesempatan lain juga kita ga pernah ada rekam jejak digital, jadi yasudahlah [lagi]...</p>
+                    <p>makasih udah jadi Resty yang hebat</p>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center">
+                        <a class="inline-flex items-center" href="#">
+                            <span class="-m-1 rounded-full border-2 border-white dark:border-slate-800">
+                                <img class="w-6" src="https://cdn.iconscout.com/icon/free/png-256/like-2387659-1991059.png" />
+                            </span>
+                            <span class="-m-1 rounded-full border-2 border-white dark:border-slate-800">
+                                <img class="w-6" src="https://cdn.iconscout.com/icon/free/png-256/angry-2387661-1991061.png" />
+                            </span>
+                            <span class="-m-1 rounded-full border-2 border-white dark:border-slate-800">
+                                <img class="w-6" src="https://cdn.iconscout.com/icon/free/png-256/wow-2387663-1991062.png" />
+                            </span>
+                            <span class="text-lg font-bold ml-3">10000000000</span>
+                        </a>
+                        <a class="ml-auto" href="#">sejuta komentar</a>
+                    </div>
+                    <div class="mt-6 mb-6 h-px bg-slate-200"></div>
+                    <div class="relative">
+                        <input
+                            class="pt-2 pb-2 pl-3 w-full h-11 bg-slate-100 dark:bg-slate-600 rounded-lg placeholder:text-slate-600 dark:placeholder:text-slate-300 font-medium pr-20"
+                            type="text"
+                            placeholder="pasti ngeyel pengen komen, gaada-gaada nanti aja."
+                        />
+                        <span class="flex absolute right-3 top-2/4 -mt-3 items-center">
+                            <svg class="mr-2" style="width: 26px; height: 26px" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12M22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5C7,8.7 7.7,8 8.5,8C9.3,8 10,8.7 10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5C14,8.7 14.7,8 15.5,8C16.3,8 17,8.7 17,9.5M12,17.23C10.25,17.23 8.71,16.5 7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23C13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5 13.75,17.23 12,17.23Z"
+                                ></path>
+                            </svg>
+                            <svg class="fill-blue-500 dark:fill-slate-50" style="width: 24px; height: 24px" viewBox="0 0 24 24">
+                                <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <!-- Comments content -->
+                    <div class="pt-6">
+                        <!-- Comment row -->
+                        <div class="media flex pb-4">
+                            <a class="mr-4" href="#">
+                                <img class="rounded-full max-w-none w-12 h-12" src="media/2.jpg" />
+                            </a>
+                            <div class="media-body">
+                                <div>
+                                    <a class="inline-block text-base font-bold mr-2" href="#">Callsamm</a>
+                                    <span class="text-slate-500 dark:text-slate-300">2 days ago</span>
+                                </div>
+                                <p>makasih</p>
+                                <div class="mt-2 flex items-center">
+                                    <a class="inline-flex items-center py-2 mr-3" href="#">
+                                        <span class="mr-2">
+                                            <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span class="text-base font-bold">sekebon</span>
+                                    </a>
+                                    <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media flex pb-4">
+                            <a class="mr-4" href="#">
+                                <img class="rounded-full max-w-none w-12 h-12" src="media/8.jpg" />
+                            </a>
+                            <div class="media-body">
+                                <div>
+                                    <a class="inline-block text-base font-bold mr-2" href="#">Sam Aneh</a>
+                                    <span class="text-slate-500 dark:text-slate-300">2 days ago</span>
+                                </div>
+                                <p>makasih</p>
+                                <div class="mt-2 flex items-center">
+                                    <a class="inline-flex items-center py-2 mr-3" href="#">
+                                        <span class="mr-2">
+                                            <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span class="text-base font-bold">seribu kebon</span>
+                                    </a>
+                                    <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End comments row -->
+                        <!-- comments row -->
+                        <div class="media flex pb-4">
+                            <a class="inline-block mr-4" href="#">
+                                <img class="rounded-full max-w-none w-12 h-12" src="media/9.jpg" />
+                            </a>
+                            <div class="media-body">
+                                <div>
+                                    <a class="inline-block text-base font-bold mr-2" href="#">Sam Roasting</a>
+                                    <span class="text-slate-500 dark:text-slate-300">35 minutes ago</span>
+                                </div>
+                                <p>Makasih</p>
+                                <div class="mt-2 flex items-center">
+                                    <a class="inline-flex items-center py-2 mr-3" href="#">
+                                        <span class="mr-2">
+                                            <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span class="text-base font-bold">se-em kebon</span>
+                                    </a>
+                                    <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                </div>
+                                <!-- Repply content -->
+                                <div class="mt-4">
+                                    <!-- Comment row -->
+                                    <div class="media flex pb-4">
+                                        <a class="mr-4" href="#">
+                                            <img class="rounded-full max-w-none w-10 h-10" src="media/10.jpg" />
+                                        </a>
+                                        <div class="media-body">
+                                            <div>
+                                                <a class="inline-block text-base font-bold mr-2" href="#">Sam Ori</a>
+                                                <span class="text-slate-500 dark:text-slate-300"> 30 minutes ago</span>
+                                            </div>
+                                            <p>Makasih</p>
+                                            <div class="mt-2 flex items-center">
+                                                <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                    <span class="mr-2">
+                                                        <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="text-base font-bold">1/9 kebon</span>
+                                                </a>
+                                                <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media flex pb-4">
+                                        <a class="mr-4" href="#">
+                                            <img class="rounded-full max-w-none w-10 h-10" src="media/9.jpg" />
+                                        </a>
+                                        <div class="media-body">
+                                            <div>
+                                                <a class="inline-block text-base font-bold mr-2" href="#">Sam Roasting</a>
+                                                <span class="text-slate-500 dark:text-slate-300">28 minutes ago</span>
+                                            </div>
+                                            <p>Iya sama-sama</p>
+                                            <div class="mt-2 flex items-center">
+                                                <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                    <span class="mr-2">
+                                                        <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="text-base font-bold">1/6 kebon</span>
+                                                </a>
+                                                <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media flex pb-4">
+                                        <a class="mr-4" href="#">
+                                            <img class="rounded-full max-w-none w-10 h-10" src="media/10.jpg" />
+                                        </a>
+                                        <div class="media-body">
+                                            <div>
+                                                <a class="inline-block text-base font-bold mr-2" href="#">Sam Ori</a>
+                                                <span class="text-slate-500 dark:text-slate-300">27 minutes ago</span>
+                                            </div>
+                                            <p>Makasih</p>
+                                            <div class="mt-2 flex items-center">
+                                                <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                    <span class="mr-2">
+                                                        <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="text-base font-bold">1/5 kebon</span>
+                                                </a>
+                                                <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media flex pb-4">
+                                        <a class="mr-4" href="#">
+                                            <img class="rounded-full max-w-none w-10 h-10" src="media/9.jpg" />
+                                        </a>
+                                        <div class="media-body">
+                                            <div>
+                                                <a class="inline-block text-base font-bold mr-2" href="#">Sam Roasting</a>
+                                                <span class="text-slate-500 dark:text-slate-300">26 minutes ago</span>
+                                            </div>
+                                            <p>Lah, kok makasih lagi?</p>
+                                            <div class="mt-2 flex items-center">
+                                                <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                    <span class="mr-2">
+                                                        <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="text-base font-bold">1/2 kebon</span>
+                                                </a>
+                                                <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media flex pb-4">
+                                        <a class="mr-4" href="#">
+                                            <img class="rounded-full max-w-none w-10 h-10" src="media/10.jpg" />
+                                        </a>
+                                        <div class="media-body">
+                                            <div>
+                                                <a class="inline-block text-base font-bold mr-2" href="#">Sam Ori</a>
+                                                <span class="text-slate-500 dark:text-slate-300">23 minutes ago</span>
+                                            </div>
+                                            <p>Biar bisa sama-sama lagi</p>
+                                            <div class="mt-2 flex items-center">
+                                                <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                    <span class="mr-2">
+                                                        <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="text-base font-bold">kebon tergadai</span>
+                                                </a>
+                                                <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media flex pb-4">
+                                        <a class="mr-4" href="#">
+                                            <img class="rounded-full max-w-none w-10 h-10" src="media/7.jpg" />
+                                        </a>
+                                        <div class="media-body">
+                                            <div>
+                                                <a class="inline-block text-base font-bold mr-2" href="#">Sam Kw</a>
+                                                <span class="text-slate-500 dark:text-slate-300">15 minutes ago</span>
+                                            </div>
+                                            <p>pelangi pelangi 🌈</p>
+                                            <div class="mt-2 flex items-center">
+                                                <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                    <span class="mr-2">
+                                                        <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="text-base font-bold">jual kebon</span>
+                                                </a>
+                                                <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media flex pb-4">
+                                        <a class="mr-4" href="#">
+                                            <img class="rounded-full max-w-none w-10 h-10" src="media/5.jpg" />
+                                        </a>
+                                        <div class="media-body">
+                                            <div>
+                                                <a class="inline-block text-base font-bold mr-2" href="#">Sam Kecil</a>
+                                                <span class="text-slate-500 dark:text-slate-300">5 minutes ago</span>
+                                            </div>
+                                            <p>awkwokwk, tersesat ohh tesesatt</p>
+                                            <div class="mt-2 flex items-center">
+                                                <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                    <span class="mr-2">
+                                                        <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="text-base font-bold">1/3 kebon</span>
+                                                </a>
+                                                <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                            </div>
+                                            <div class="media flex pb-4">
+                                                <a class="mr-4" href="#">
+                                                    <img class="rounded-full max-w-none w-10 h-10" src="media/6.jpg" />
+                                                </a>
+                                                <div class="media-body">
+                                                    <div>
+                                                        <a class="inline-block text-base font-bold mr-2" href="#">Mini Sam</a>
+                                                        <span class="text-slate-500 dark:text-slate-300">3 minutes ago</span>
+                                                    </div>
+                                                    <p>astaghfirullah</p>
+                                                    <div class="mt-2 flex items-center">
+                                                        <a class="inline-flex items-center py-2 mr-3" href="#">
+                                                            <span class="mr-2">
+                                                                <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                                    <path
+                                                                        d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                                    ></path>
+                                                                </svg>
+                                                            </span>
+                                                            <span class="text-base font-bold">1/2 kebon</span>
+                                                        </a>
+                                                        <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End comments row -->
+                                </div>
+                                <!-- End repply content -->
+                            </div>
+                        </div>
+                        <div class="media flex pb-4">
+                            <a class="mr-4" href="#">
+                                <img class="rounded-full max-w-none w-12 h-12" src="media/11.jpg" />
+                            </a>
+                            <div class="media-body">
+                                <div>
+                                    <a class="inline-block text-base font-bold mr-2" href="#">Sebut Saja Sam</a>
+                                    <span class="text-slate-500 dark:text-slate-300">1 days ago</span>
+                                </div>
+                                <p>Makasih</p>
+                                <div class="mt-2 flex items-center">
+                                    <a class="inline-flex items-center py-2 mr-3" href="#">
+                                        <span class="mr-2">
+                                            <svg class="fill-rose-600 dark:fill-rose-400" style="width: 22px; height: 22px" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span class="text-base font-bold">sekebon</span>
+                                    </a>
+                                    <button class="py-2 px-4 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg">Repply</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End comments row -->
+                        <div class="pt-6">
+                            <div class="w-full">
+                                <button
+                                    class="py-2 underline px-4 w-full block bg-slate-100 dark:bg-slate-700 text-center rounded-lg font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition ease-in-out delay-75"
+                                >
+                                    Komentar lainnya disembunyikan
+                                </button>
+                            </div>
+                        </div>
+                        <div class="pt-6">
+                            <div class="w-full">
+                                <button
+                                    id="Jelajah7"
+                                    onclick="maaf()"
+                                    class="py-3 px-4 w-full block bg-slate-100 dark:bg-slate-700 text-center rounded-lg font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition ease-in-out delay-75"
+                                >
+                                    👆🏻Next Jelajah!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Comments content -->
+                </div>
+            </article>
+        </div>
+        <!-- Card8 End -->
+
+        <!-- Sorry Page Start -->
+        <section
+            id="maaf"
+            class="hidden h-screen w-screen bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply"
+        >
+            <div class="px-4 mx-auto my-auto text-center py-48 lg:py-52">
+                <h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">🙏🏻 MAAF 🙏🏻</h1>
+                <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+                    Kami ingin mengucapkan permintaan maaf melalui halaman ini. Terkadang kesalahan terjadi, dan kami berkomitmen untuk mengevaluasi dan memperbaiki kesalahan kami.
+                </p>
+                <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                    <button
+                        id="btn-terimakasih"
+                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-third hover:bg-secondary focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                        onclick="jelajah9()"
+                    >
+                        Get started
+                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Sorry Page End -->
+
+        <!-- Card9 Start -->
+        <div id="card9" class="hidden text-center m-3">
+            <article class="md:w-1/3 mb-4 mx-auto shadow-lg break-inside p-6 rounded-xl bg-white dark:bg-slate-800 flex flex-col bg-clip-border">
+                <div class="flex pb-6 items-center justify-between">
+                    <div class="flex">
+                        <a class="inline-block mr-4" href="#">
+                            <img class="rounded-full max-w-none w-14 h-14" src="media/5.jpg" />
+                        </a>
+                        <div class="flex flex-col">
+                            <div class="flex items-center">
+                                <a class="inline-block text-lg font-bold mr-2" href="#">So Sorry</a> <span class="text-slate-500 text-base">2 months ago</span>
+                            </div>
+                            <div class="text-slate-500 text-justify dark:text-slate-300">Sorry - Sorry - Sorry</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-justify">
+                    <p class="my-1">
+                        Maaf ya, atas hal-hal yang barangkali kurang atau bahkan tidak menyenangkan sama sekali terhadap kamu yang melibatkan aku. Permohonan maaf yang tulus dariku
+                        atas segala hal, perkataan, perbuatan dan tingkah laku juga kebiasaan ku yang tidak kamu sukai.
+                    </p>
+                    <p class="my-1">
+                        Maaf juga, barangkali sering nya aku merepotkan mu. Sebut saja sebuah kesengajaan yang aku lakukan sebelumnya agar aku bisa melibatkan kamu dalam hal-hal
+                        kecil yang aku jalani, baik itu tentang keputusan memilih dan menentukan ataupun hal-hal iannya.
+                    </p>
+                    <p class="my-1">
+                        Aku harap, kamu bisa memahami dan mengerti serta memberikan maaf yang tulus atas semua hal yang melibatkan aku dan segala hal yang kurang berkenan itu.
+                    </p>
+                </div>
+                <div class="flex justify-between items-center px-4 mt-8 w-full">
+                    <div class="flex">
+                        <i class="material-icons mr-2 text-red-600">favorite_border</i>
+                        <i class="material-icons text-red-600">remove_red_eye</i>
+                    </div>
+                    <div class="flex">
+                        <i class="material-icons ml-2 text-red-600">sentiment_very_satisfied</i>
+                        <i class="material-icons ml-2 text-red-600">sentiment_neutral</i>
+                        <i class="material-icons ml-2 text-red-600">sentiment_very_dissatisfied</i>
+                        <i class="material-icons ml-2 text-red-600">star_outline</i>
+                        <i class="material-icons ml-2 text-red-600">star_half</i>
+                        <i class="material-icons ml-2 text-red-600">star</i>
+                    </div>
+                </div>
+            </article>
+            <div class="text-xs">
+                <button
+                    id="jelajah9"
+                    type="button"
+                    onclick="penutup()"
+                    class="border bg-white border-gray-400 text-gray-400 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 hover:text-white focus:outline-none focus:shadow-outline"
+                >
+                    NEXT PAGE👆🏻
+                </button>
+            </div>
+        </div>
+        <!-- Card9 End -->
+
+        <!-- Closing Page Start -->
+        <section
+            id="penutup"
+            class="hidden h-screen w-screen bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply"
+        >
+            <div class="px-4 mx-auto my-auto text-center py-48 lg:py-52">
+                <h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">PENUTUP</h1>
+                <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Dengan berat hati, anda memasuki halaman-halaman terakhir dari chapter ini!</p>
+                <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                    <button
+                        id="btn-terimakasih"
+                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-third hover:bg-secondary focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                        onclick="jelajah10()"
+                    >
+                        Get started
+                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Closing Page End -->
+
+        <!-- Card10 Start -->
+        <div id="card10" class="hidden">
+            <div class="min-w-screen min-h-screen bg-secondary flex items-center p-5 lg:p-10 overflow-hidden relative">
+                <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+                    <div class="md:flex items-center -mx-10">
+                        <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
+                            <div class="relative">
+                                <img src="media/fams.png" alt="myFams" class="rounded-lg shadow-lg" />
+                                <p class="text-center text-sm mt-2 text-gray-500">Foto diambil sekitar bulan Mei 2023</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 px-10">
+                            <div class="mb-10">
+                                <h1 class="font-bold uppercase text-2xl mb-5">[Perihal Keluarga-ku]</h1>
+                                <p class="text-base text-justify">
+                                    Alhamdulillah, per hari aku bikin tulisan dan web ini anggota Keluarga ku sehat semua - aku harap Keluarga mu juga ya. Aku udah punya tiga (3)
+                                    keponakan loh, dan Alhamdulillah cewek semua. Kok alhamdulillah? Ya gapapa, berarti aku belum ada saingan hahah. Ketiganya, ada Aisyah Ayudia
+                                    Inara ("Aisy"), Naifa Athiyya Putri ("Nayy") dan terakhir ada Hilya Tussania Arafah ("Sann"). Yang dalam tanda kurung itu nama panggilan mereka
+                                    dari aku, wkwk.
+                                </p>
+                                <p class="text-base text-justify my-2">Sekarang, kita masuk ke bagian intinya ya.</p>
+                                <p class="text-base text-justify mb-2">
+                                    Saudari ku (Ayuk [2]) udah punya hidup dan keluarga nya masing-masing, ikut suaminya. Umak sendirian di rumah, kesepian pastinya, kesehatan Umak
+                                    juga mulai menurun, gaada orang lain dan memang sudah jadi kewajiban ku bertanggungjawab atas segala hal terkait Umak setelah ini. Aku gatau,
+                                    apakah kamu cukup peduli akan hal itu, tapi yang jelas aku memberitahu.
+                                </p>
+                                <div class="text-base text-justify">Nanti pas Wisuda, rencana nya Umak ke Bandung - temuin Umak ya kalo kamu nya berkenan.</div>
+                            </div>
+                            <div class="inline-block align-bottom">
+                                <button
+                                    id="jelajah10"
+                                    onclick="jelajah11()"
+                                    class="bg-secondary opacity-75 hover:opacity-100 hover:text-gray-900 rounded-full px-10 py-2 font-semibold"
+                                >
+                                    <i class="mdi mdi-cart -ml-2 mr-2"></i> Go Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card10 End -->
+
+        <!-- Card11 Start -->
+        <div id="card11" class="hidden">
+            <div class="flex items-center justify-center w-screen h-screen">
+                <div class="px-5 py-4 bg-white dark:bg-gray-800 shadow-lg rounded-lg max-w-lg">
+                    <div class="flex mb-4">
+                        <img class="w-12 h-12 rounded-full" src="media/1.jpg" />
+                        <div class="ml-2 mt-0.5">
+                            <span class="block font-medium text-base leading-snug text-black dark:text-gray-100">About Me</span>
+                            <span class="block text-base text-gray-500 dark:text-gray-400 font-light leading-snug">2023 memories - last</span>
+                        </div>
+                    </div>
+                    <div class="text-justify">
+                        <h4 class="text-base my-2.5 font-semibold uppercase leading-tight truncate">[Perihal Diri-ku]</h4>
+                        <p class="text-gray-800 mb-1 dark:text-gray-100 leading-snug md:leading-normal">
+                            Rencana awal ku adalah menjadi manusia yang bebas, menjelajahi negeri dan mengabdikan diri bagi masyarakat pada umumnya. Rupanya Tuhan punya kehendak
+                            lain, yakni: "Pulang saja dan Abdikan diri untuk masyarakat di kampung halaman". Tak apa, bukankah sebaik-baiknya rencana adalah Rencana Tuhan? Dan
+                            sudah jadi kodrat nya, bahwa manusia hanya bisa berencana. Aku akan susun kembali rencana hidupku setelah pulang, setelah aku lihat kondisi dan
+                            kemungkinan yang ada disana.
+                        </p>
+                        <p class="text-gray-800 dark:text-gray-100 leading-snug md:leading-normal">Untuk sekarang, segala bentuk rencanaku sebelumnya - aku nyatakan "Selesai".</p>
+                    </div>
+                    <div class="flex justify-between items-center mt-5">
+                        <div class="flex">
+                            <svg
+                                class="p-0.5 h-6 w-6 rounded-full z-20 bg-white dark:bg-gray-800"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="0 0 16 16"
+                            >
+                                <defs>
+                                    <linearGradient id="a1" x1="50%" x2="50%" y1="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#18AFFF" />
+                                        <stop offset="100%" stop-color="#0062DF" />
+                                    </linearGradient>
+                                    <filter id="c1" width="118.8%" height="118.8%" x="-9.4%" y="-9.4%" filterUnits="objectBoundingBox">
+                                        <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1" />
+                                        <feOffset dy="-1" in="shadowBlurInner1" result="shadowOffsetInner1" />
+                                        <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1" />
+                                        <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0 0 0 0 0 0.299356041 0 0 0 0 0.681187726 0 0 0 0.3495684 0" />
+                                    </filter>
+                                    <path id="b1" d="M8 0a8 8 0 00-8 8 8 8 0 1016 0 8 8 0 00-8-8z" />
+                                </defs>
+                                <g fill="none">
+                                    <use fill="url(#a1)" xlink:href="#b1" />
+                                    <use fill="black" filter="url(#c1)" xlink:href="#b1" />
+                                    <path
+                                        fill="white"
+                                        d="M12.162 7.338c.176.123.338.245.338.674 0 .43-.229.604-.474.725a.73.73 0 01.089.546c-.077.344-.392.611-.672.69.121.194.159.385.015.62-.185.295-.346.407-1.058.407H7.5c-.988 0-1.5-.546-1.5-1V7.665c0-1.23 1.467-2.275 1.467-3.13L7.361 3.47c-.005-.065.008-.224.058-.27.08-.079.301-.2.635-.2.218 0 .363.041.534.123.581.277.732.978.732 1.542 0 .271-.414 1.083-.47 1.364 0 0 .867-.192 1.879-.199 1.061-.006 1.749.19 1.749.842 0 .261-.219.523-.316.666zM3.6 7h.8a.6.6 0 01.6.6v3.8a.6.6 0 01-.6.6h-.8a.6.6 0 01-.6-.6V7.6a.6.6 0 01.6-.6z"
+                                    />
+                                </g>
+                            </svg>
+                            <span class="ml-1 text-gray-500 dark:text-gray-400 font-light">1</span>
+                        </div>
+                        <button id="jelajah11" onclick="jelajah12()" class="text-blue-600 rounded-lg text-base inline-flex items-center hover:underline">
+                            Go Next!
+                            <svg class="w-3 h-3 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <path
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
+                                />
+                            </svg>
+                        </button>
+                        <div class="ml-1 text-gray-500 dark:text-gray-400 font-light">No comments</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card11 End -->
+
+        <!-- Card12 Start -->
+        <div id="card12" class="hidden w-5/6 md:w-1/3">
+            <div class="wrapp11 antialiased text-gray-900 mt-5">
+                <div>
+                    <img src="media/rest.jpg" alt=" random imgee" class="h-72 w-full object-cover object-center rounded-lg shadow-md" />
+                    <div class="relative px-4 -mt-16 mb-5">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="text-xl font-semibold uppercase leading-tight truncate">[Perihal Kamu]</div>
+                            <div class="mt-3">
+                                <p class="text-gray-600 text-base text-justify my-2">
+                                    Barangkali aku akan titipkan pesan, "Jaga dirimu baik-baik ya, kalau ada kesempatan dan kemungkinan - kamu <strong>harus</strong> lanjut S2, S3
+                                    dan seterusnya - rezeki itu udah ada yang atur, jadi, semangat ya, aku yakin kamu bisa lanjut S2. Kita harus sama-sama belajar lebih banyak
+                                    lagi, mengkeksplorasi hal-hal hebat yang belum kita ketahui. Tingkatkan value diri, karena kalau kita punya value yang tinggi, percayalah kita
+                                    akan disejajarkan dengan orang yang memiliki value yang sama baiknya. Yok bisa mulai rajin baca buku habis ini, buku apa aja - ga harus di
+                                    porsir buku tertentu - karena bagian terpentingnya bukan baca buku apa? tapi ada kebiasaan baik yakni membaca. Habis baca, let's start writing.
+                                    "
+                                </p>
+                                <p class="text-gray-600 text-base text-justify">
+                                    Terakhir,
+                                    <i class="font-medium"
+                                        >"tetap dan teruslah berbuat, dan menjadi orang baik - kalau kamu tidak menemukan orang baik - percayalah akan ada orang baik yang menemukan
+                                        kamu."</i
+                                    >
+                                </p>
+                            </div>
+                            <div class="mt-4">
+                                <span class="text-gray-600 text-md font-semibold">4.9/5 ratings</span>
+                                <span class="text-base text-gray-600">- only rate by me</span>
+                            </div>
+                            <button
+                                id="jelajah12"
+                                onclick="jelajah13()"
+                                class="bg-secondary opacity-75 hover:opacity-100 mt-3 p-2.5 rounded-lg text-sm inline-flex items-center hover:underline"
+                            >
+                                Go Next!
+                                <svg class="w-3 h-3 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                    <path
+                                        stroke="currentColor"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card12 End -->
+
+        <!-- Card13 Start -->
+        <div id="card13" class="hidden">
+            <article class="md:w-1/3 mb-4 mx-auto break-inside p-6 rounded-xl bg-white dark:bg-slate-800 flex flex-col bg-clip-border">
+                <div class="flex pb-6 items-center justify-between">
+                    <div class="flex">
+                        <a class="inline-block mr-4" href="#">
+                            <img class="rounded-full max-w-none w-14 h-14" src="media/5.jpg" />
+                        </a>
+                        <div class="flex flex-col">
+                            <div class="flex items-center">
+                                <a class="inline-block text-lg font-bold mr-2" href="#">Last Page</a>
+                            </div>
+                            <div class="text-slate-500 dark:text-slate-300">Congrats - Thanks - Sorry</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-4">
+                    <div class="flex justify-between gap-1 mb-1">
+                        <a class="flex" href="#">
+                            <img class="max-w-full rounded-l-lg" src="media/foto/1.jpg" />
+                        </a>
+                        <a class="flex" href="#">
+                            <img class="max-w-full rounded-r-lg" src="media/foto/2.jpg" />
+                        </a>
+                    </div>
+                </div>
+                <h2 class="text-3xl font-extrabold">Ini halaman terakhir!</h2>
+                <div class="py-4">
+                    <p>Dan, selamat atas Yudisium + Wisuda nya.</p>
+                    <p class="my-1 text-justify">
+                        Aku pamit pulang yaa, sukses, sehat dan selalu bahagia ya buat kamu. Makasih atas semua hal-hal hebat nya, dan Maaf atas hal-hal yang kurang berkenan
+                        (semuanya).
+                    </p>
+                </div>
+                <div class="py-4">
+                    <a class="inline-flex items-center" href="#">
+                        <span class="mr-2">
+                            <svg class="fill-rose-600 dark:fill-rose-400" style="width: 24px; height: 24px" viewBox="0 0 24 24">
+                                <path
+                                    d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                                ></path>
+                            </svg>
+                        </span>
+                        <span class="text-lg font-bold">sekebon</span>
+                    </a>
+                </div>
+            </article>
+        </div>
+        <!-- Card13 End -->
+        <script src="js/script.js"></script>
+    </body>
+</html>
