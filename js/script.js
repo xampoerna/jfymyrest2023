@@ -185,8 +185,16 @@ function jelajah12() {
   runConfetti1();
 }
 
+function qtime() {
+  changeBackgroundAndDisplayNext("media/background/bg6.jpeg", "card12", "qtime");
+  runConfetti1();
+}
+function quiz() {
+  changeBackgroundAndDisplayNext("media/background/bg16.jpeg", "qtime", "quiz");
+  runConfetti1();
+}
 function jelajah13() {
-  changeBackgroundAndDisplayNext("media/background/bg6.jpeg", "card12", "card13");
+  changeBackgroundAndDisplayNext("media/background/bg16.jpeg", "quiz", "card13");
   runConfetti1();
 }
 

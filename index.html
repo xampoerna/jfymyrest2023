@@ -1559,7 +1559,7 @@
                             </div>
                             <button
                                 id="jelajah12"
-                                onclick="jelajah13()"
+                                onclick="qtime()"
                                 class="bg-secondary opacity-75 hover:opacity-100 mt-3 p-2.5 rounded-lg text-sm inline-flex items-center hover:underline"
                             >
                                 Go Next!
@@ -1579,6 +1579,157 @@
             </div>
         </div>
         <!-- Card12 End -->
+
+        <!-- QTime Page Start -->
+        <section id="qtime" class="hidden h-screen w-screen bg-center bg-no-repeat bg-[url('media/bgfall.png')] bg-gray-700 bg-blend-multiply">
+            <div class="px-4 mx-auto my-auto text-center py-48 lg:py-52">
+                <h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">DEEP TALK HERE</h1>
+                <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+                    Selamat datang, Anda memasuki sesi tanya jawab - sebuah sesi receh yang barangkali bisa memberikan kontribusi baik buat kita
+                </p>
+                <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                    <button
+                        id="btn-terimakasih"
+                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-third hover:bg-secondary focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                        onclick="quiz()"
+                    >
+                        Get started
+                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- QTime Page End -->
+
+        <!-- Quiz Session Start -->
+        <div id="quiz" class="hidden">
+            <div class="w-full my-5 mx-auto md:w-1/2 md:p-3 md:py-5 md:rounded-md bg-white md:border">
+                <div class="px-4 mx-auto">
+                    <h2 class="mb-4 text-xl md:text-2xl font-bold text-justify text-gray-900 dark:text-white">DEEP TALK HERE</h2>
+                    <p class="mb-6 lg:mb-10 text-justify">
+                        Selamat datang di bagian akhir dari Ruang Jelajah ini, ada beberapa pertanyaan yang barangkali bisa bikin semuanya jadi sedikt lebih baik. Aku harap kamu
+                        beri jawaban yang sesuai dengan perasaan dan kondisi kamu, let's start, aku punya sesuatu setelah halaman ini.
+                    </p>
+                    <form action="#" name="submit-to-google-sheet" class="space-y-8">
+                        <div>
+                            <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Today, is...?</label>
+                            <input
+                                type="datetime-local"
+                                id="date"
+                                name="date"
+                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alamat email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                                placeholder="name@gmail.com"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="storyoftheday" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                >Ada cerita apa hari ini "Resty Kustiawanti Putri"?</label
+                            >
+                            <textarea
+                                id="storyoftheday"
+                                name="storyoftheday"
+                                rows="6"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Barangkali ada cerita yang perlu aku dengar/baca hari ini"
+                                required
+                            ></textarea>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="feel" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                                >Gimana perasaan mu setelah melihat kilas balik perjalanan waktu di "Ruang Jelajah" ini?</label
+                            >
+                            <input
+                                type="text"
+                                id="feel"
+                                name="feel"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Masukkan pesan..."
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="kesan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Apa ada kenangan yang paling berkesan?</label>
+                            <textarea
+                                id="kesan"
+                                name="kesan"
+                                rows="4"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Sampaikan, kenangannya disini."
+                                required
+                            ></textarea>
+                        </div>
+                        <div>
+                            <label for="aboutme" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                >Apa yang paling kamu sukai dari aku? dan Apa yang paling kamu benci dari aku?</label
+                            >
+                            <textarea
+                                id="aboutme"
+                                name="aboutme"
+                                rows="5"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Sampaikan, biar aku evaluasi diri"
+                                required
+                            ></textarea>
+                        </div>
+                        <div>
+                            <label for="khawatir" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                >Apa kamu pernah merasa khawatir tentang aku? Jika ada tolong sampaikan perihal apa?, kenapa?, dan kapan?, jika tidak say "TIDAK".
+                            </label>
+                            <textarea
+                                id="khawatir"
+                                name="khawatir"
+                                rows="4"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Sampaikan sesuatu"
+                                required
+                            ></textarea>
+                        </div>
+                        <div>
+                            <label for="penutup" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                >Kalo ada istilah "now" or "never", apa yang ingin kamu sampaikan? Sampaikan apa saja yang mau kamu sampaikan disini!
+                            </label>
+                            <textarea
+                                id="penutup"
+                                name="penutup"
+                                rows="6"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Sampaikan, semuanya disini."
+                                required
+                            ></textarea>
+                        </div>
+                        <button
+                            type="submit"
+                            onclick="last()"
+                            class="py-3 px-5 mr-1 text-sm font-medium bg-third hover:bg-fourth text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                        >
+                            Kirim pesan
+                        </button>
+                        <br /><br />
+                        <span id="Success" class="hidden p-3 underline bg-pink-800 text-white px-4 pt-2 rounded-md">Noted! Terimakasih.</span>
+                        <p class="text-sm text-gray-500">
+                            Keterangan: <br />
+                            - Jika beruntung, kamu bakal dapet feedback otomatis dari email <br />
+                            - Dan, semoga beruntung! <br />
+                            - Masih ada halaman lain menanti setelah ini
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Quiz Session End -->
 
         <!-- Card13 Start -->
         <div id="card13" class="hidden">
@@ -1613,6 +1764,7 @@
                         Aku pamit pulang yaa, sukses, sehat dan selalu bahagia ya buat kamu. Makasih atas semua hal-hal hebat nya, dan Maaf atas hal-hal yang kurang berkenan
                         (semuanya).
                     </p>
+                    <p class="mt-8 text-right">Tertanda, <a href="" class="hover:underline">A Osama</a></p>
                 </div>
                 <div class="py-4">
                     <a class="inline-flex items-center" href="#">
@@ -1626,9 +1778,33 @@
                         <span class="text-lg font-bold">sekebon</span>
                     </a>
                 </div>
+                <!-- <div>
+                    <p id="jelajah13" onclick="quiz()" class="cursor-pointer hover:underline">ada yang ingin disampaikan? click me!💌</p>
+                </div> -->
             </article>
         </div>
         <!-- Card13 End -->
+
         <script src="js/script.js"></script>
+        <script>
+            const scriptURL = "https://script.google.com/macros/s/AKfycbym8qtaepEbVMrrJc8jDs_6Ex8d_UByEzQg-R2t5dtgUbIXqZzkk3QkOV6ONPxNCiMLlQ/exec";
+            const form = document.forms["submit-to-google-sheet"];
+            const Success = document.getElementById("Success");
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                fetch(scriptURL, { method: "POST", body: new FormData(form) })
+                    .then((response) => {
+                        Success.textContent = "Noted! Terimakasih.";
+                        Success.classList.remove("hidden"); // Tampilkan pesan
+                        setTimeout(function () {
+                            Success.classList.add("hidden"); // Sembunyikan pesan setelah beberapa detik
+                            jelajah13();
+                        }, 3000);
+                        form.reset();
+                    })
+                    .catch((error) => console.error("Error!", error.message));
+            });
+        </script>
     </body>
 </html>
